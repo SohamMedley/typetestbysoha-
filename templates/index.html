@@ -20,12 +20,56 @@
             <div class="bg-blur"></div>
         </div>
 
+        <!-- Welcome Screen Overlay -->
+        <div class="welcome-overlay" id="welcomeOverlay">
+            <div class="welcome-card">
+                <div class="welcome-header">
+                    <h1>Welcome to <span class="logo-text">Type<span class="logo-highlight">Test</span></span></h1>
+                    <p class="welcome-subtitle">Improve your typing speed and accuracy</p>
+                </div>
+                <div class="welcome-content">
+                    <div class="welcome-instructions">
+                        <h3>How to use:</h3>
+                        <ol>
+                            <li>Select your preferred test mode (time, words, quote, code, or custom)</li>
+                            <li>Choose difficulty and test length options</li>
+                            <li>Click "Start Typing" to begin the test</li>
+                            <li>Type the displayed text as quickly and accurately as possible</li>
+                            <li>View your results when the test is complete</li>
+                        </ol>
+                    </div>
+                    <div class="welcome-features">
+                        <h3>Features:</h3>
+                        <ul>
+                            <li>Multiple test modes and difficulty levels</li>
+                            <li>Real-time WPM and accuracy tracking</li>
+                            <li>Detailed statistics and performance charts</li>
+                            <li>Keyboard shortcuts for quick navigation</li>
+                            <li>Dark/light theme toggle</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="start-btn" id="startTestBtn">Start Typing</button>
+            </div>
+        </div>
+
+        <!-- Countdown Timer Overlay -->
+        <div class="countdown-overlay hidden" id="countdownOverlay">
+            <div class="countdown-number" id="countdownNumber">3</div>
+        </div>
+
         <header>
             <div class="logo">
                 <span class="logo-text">Type<span class="logo-highlight">Test</span></span>
                 <div class="logo-dot"></div>
             </div>
             <div class="header-controls">
+                <div class="history-toggle" id="historyToggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 8v4l3 3"></path>
+                        <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                </div>
                 <div class="sound-toggle" id="soundToggle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -251,27 +295,66 @@
                     </div>
                 </div>
             </div>
+
+            <!-- History Panel -->
+            <div class="history-panel hidden" id="historyPanel">
+                <div class="history-header">
+                    <h2>Your Typing History</h2>
+                    <button class="close-history" id="closeHistory">×</button>
+                </div>
+                
+                <div class="history-tabs">
+                    <button class="history-tab active" data-tab="recent">Recent Tests</button>
+                    <button class="history-tab" data-tab="highscores">High Scores</button>
+                </div>
+                
+                <div class="history-content">
+                    <div class="history-tab-content active" id="recentTests">
+                        <div class="history-empty">No recent tests found. Complete a test to see your history.</div>
+                        <div class="history-list" id="recentTestsList"></div>
+                    </div>
+                    
+                    <div class="history-tab-content" id="highScores">
+                        <div class="highscore-categories">
+                            <div class="highscore-category">
+                                <h3>Time Mode</h3>
+                                <div class="highscore-list" id="timeHighscores"></div>
+                            </div>
+                            <div class="highscore-category">
+                                <h3>Words Mode</h3>
+                                <div class="highscore-list" id="wordsHighscores"></div>
+                            </div>
+                            <div class="highscore-category">
+                                <h3>Quote Mode</h3>
+                                <div class="highscore-list" id="quoteHighscores"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="history-footer">
+                    <button class="clear-history-btn" id="clearHistoryBtn">Clear History</button>
+                </div>
+            </div>
         </main>
 
         <footer>
-            <p>Created by Soham • No data is stored after closing the window</p>
-            <div class="footer-links">
-                <a href="#" class="footer-link">About</a>
-                <a href="#" class="footer-link">GitHub</a>
-                <a href="#" class="footer-link">Contact</a>
+            <div class="footer-content">
+                <div class="copyright">© 2023 TypeTest by Soham</div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">About</a>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Contact</a>
+                </div>
             </div>
         </footer>
-    </div>
 
-    <div class="toast hidden" id="toast">
-        <div class="toast-content">
-            <svg class="toast-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <div class="toast-message" id="toastMessage">Result copied to clipboard!</div>
+        <!-- Toast Notification -->
+        <div class="toast hidden" id="toast">
+            <div class="toast-content">
+                <div class="toast-message" id="toastMessage"></div>
+            </div>
         </div>
-        <div class="toast-progress"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

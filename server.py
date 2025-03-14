@@ -105,6 +105,9 @@ code_snippets = [
 
 def create_directories():
     os.makedirs('static/sounds', exist_ok=True)
+    
+create_directories()
+
 
 create_directories()
 
