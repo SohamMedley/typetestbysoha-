@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeTest | Premium Typing Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div class="app-container">
+        <div class="background-elements">
+            <div class="bg-circle circle-1"></div>
+            <div class="bg-circle circle-2"></div>
+            <div class="bg-circle circle-3"></div>
+            <div class="bg-blur"></div>
+        </div>
+
+        <header>
+            <div class="logo">
+                <span class="logo-text">Type<span class="logo-highlight">Test</span></span>
+                <div class="logo-dot"></div>
+            </div>
+            <div class="header-controls">
+                <div class="sound-toggle" id="soundToggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    </svg>
+                </div>
+                <div class="theme-toggle" id="themeToggle">
+                    <div class="toggle-track">
+                        <div class="toggle-thumb">
+                            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="test-config">
+                <div class="test-mode">
+                    <button class="mode-btn active" data-mode="time">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>time</span>
+                    </button>
+                    <button class="mode-btn" data-mode="words">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        <span>words</span>
+                    </button>
+                    <button class="mode-btn" data-mode="quote">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                        </svg>
+                        <span>quote</span>
+                    </button>
+                    <button class="mode-btn" data-mode="code">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <span>code</span>
+                    </button>
+                    <button class="mode-btn" data-mode="custom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                        <span>custom</span>
+                    </button>
+                </div>
+                
+                <div class="test-options">
+                    <div class="option-group time-options">
+                        <button class="option-btn" data-time="15">15s</button>
+                        <button class="option-btn active" data-time="30">30s</button>
+                        <button class="option-btn" data-time="60">60s</button>
+                        <button class="option-btn" data-time="120">120s</button>
+                    </div>
+                    <div class="option-group words-options hidden">
+                        <button class="option-btn" data-words="10">10</button>
+                        <button class="option-btn active" data-words="25">25</button>
+                        <button class="option-btn" data-words="50">50</button>
+                        <button class="option-btn" data-words="100">100</button>
+                    </div>
+                    <div class="option-group quote-options hidden">
+                        <button class="option-btn active" data-quote="short">short</button>
+                        <button class="option-btn" data-quote="medium">medium</button>
+                        <button class="option-btn" data-quote="long">long</button>
+                    </div>
+                    <div class="option-group code-options hidden">
+                        <button class="option-btn active" data-code="random">random</button>
+                    </div>
+                    <div class="option-group custom-options hidden">
+                        <textarea id="customText" placeholder="Type or paste your custom text here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="difficulty-selector">
+                    <div class="difficulty-label">Difficulty:</div>
+                    <div class="difficulty-options">
+                        <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                        <button class="difficulty-btn active" data-difficulty="medium">Medium</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                        <button class="difficulty-btn" data-difficulty="programming">Programming</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="typing-test">
+                <div class="test-header">
+                    <div class="timer-container">
+                        <div class="timer" id="timer">30</div>
+                        <div class="timer-label">seconds</div>
+                    </div>
+                    <div class="live-stats">
+                        <div class="stat">
+                            <div class="stat-value" id="liveWpm">0</div>
+                            <div class="stat-label">WPM</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="liveAccuracy">100%</div>
+                            <div class="stat-label">Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-display-container">
+                    <div class="text-display" id="textDisplay"></div>
+                    <div class="cursor"></div>
+                </div>
+                
+                <input type="text" class="input-field" id="inputField" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                
+                <div class="test-footer">
+                    <div class="restart-btn" id="restartBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                            <path d="M3 3v5h5"></path>
+                        </svg>
+                        <span>Restart</span>
+                    </div>
+                    <div class="keyboard-tips">
+                        <div class="tip">
+                            <kbd>Tab</kbd> + <kbd>Enter</kbd> to restart
+                        </div>
+                        <div class="tip">
+                            <kbd>Esc</kbd> to reset
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results hidden" id="results">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2>Test Results</h2>
+                        <button class="close-results" id="closeResults">×</button>
+                    </div>
+                    
+                    <div class="result-summary">
+                        <div class="summary-item">
+                            <div class="summary-value" id="wpmValue">0</div>
+                            <div class="summary-label">WPM</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value" id="accuracyValue">0%</div>
+                            <div class="summary-label">Accuracy</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-value" id="timeValue">0s</div>
+                            <div class="summary-label">Time</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-stats">
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <div class="stat-label">Characters</div>
+                                <div class="stat-value">
+                                    <span id="correctCharsValue">0</span>/<span id="totalCharsValue">0</span>
+                                </div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Accuracy</div>
+                                <div class="stat-value" id="detailedAccuracyValue">0%</div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <div class="stat-label">Correct Words</div>
+                                <div class="stat-value" id="correctWordsValue">0</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Incorrect Words</div>
+                                <div class="stat-value" id="incorrectWordsValue">0</div>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <div class="stat-label">Consistency</div>
+                                <div class="stat-value" id="consistencyValue">0%</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Raw WPM</div>
+                                <div class="stat-value" id="rawWpmValue">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-chart">
+                        <canvas id="wpmChart"></canvas>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button class="retry-btn" id="retryBtn">Try Again</button>
+                        <button class="share-btn" id="shareBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                <polyline points="16 6 12 2 8 6"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="15"></line>
+                            </svg>
+                            Share Result
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Created by Soham • No data is stored after closing the window</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">GitHub</a>
+                <a href="#" class="footer-link">Contact</a>
+            </div>
+        </footer>
+    </div>
+
+    <div class="toast hidden" id="toast">
+        <div class="toast-content">
+            <svg class="toast-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div class="toast-message" id="toastMessage">Result copied to clipboard!</div>
+        </div>
+        <div class="toast-progress"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
