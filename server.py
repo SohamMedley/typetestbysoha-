@@ -103,9 +103,11 @@ code_snippets = [
 }"""
 ]
 
-@app.before_first_request
 def create_directories():
     os.makedirs('static/sounds', exist_ok=True)
+    
+create_directories()
+
 
 @app.route('/')
 def index():
